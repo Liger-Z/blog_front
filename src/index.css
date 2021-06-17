@@ -24,9 +24,28 @@ h1  {
   font-size: 2rem;
 }
 
+h2 {
+  font-family: "Nunito";
+  font-size: 1.5rem;
+}
+
 /* Header */
 
 #site-header {
-  border-bottom: 2px solid #1c2122;
   padding-bottom: 8px;
+  border-bottom: 2px solid #1c2122;
+  margin-bottom: 32px;
 }
+
+/* Home */
+
+.home-container > div:first-child > p {
+  margin-bottom: 32px;
+}
+
+/* PostList */
+
+.postlist-container > h2 {
+  margin-bottom: 16px;
+}
+
