@@ -4,11 +4,17 @@ const PostList = () => {
   const [postList, setPostList] = useState([]);
 
   const renderPostList = postList.map((post) => {
+    // Dont want the whole post displayed on the home page
+    const trimmedBody = () => {
+      return post.body.slice(0, 150) + '...';
+    };
+
     console.log(postList)
+
     return (
       <div key={post._id}>
         <h3>{post.title}</h3>
-        <p>{post.body}</p>
+        <p>{trimmedBody()}</p>
       </div>
     );
   });
