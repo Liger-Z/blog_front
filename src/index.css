@@ -17,6 +17,11 @@ html, body {
   font-size: 16px;
   color: #1c2122;
   margin: 12px;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 h1  {
@@ -32,9 +37,51 @@ h2 {
 /* Header */
 
 #site-header {
-  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
   border-bottom: 2px solid #1c2122;
   margin-bottom: 32px;
+}
+
+#site-header > button {
+  border: 0px;
+}
+
+#site-header > button > .la-bars {
+  font-size: 32px;
+  color: #1c2122;
+}
+
+/* Navbar */
+
+.navbar-container {
+  position: absolute;
+  right:24px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 150px;
+  padding: 8px;
+  background-color: #e25238;
+}
+
+.navbar-container > button {
+  border: 0px;
+  background-color: #e25238;
+}
+
+.navbar-container > button > .la-bars {
+  font-size: 32px;
+  color: #1c2122;
+}
+
+.navbar-container > ul > li > a {
+  color: white;
+  font-family: "Montserrat";
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /* Home */
