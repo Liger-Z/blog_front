@@ -4,19 +4,17 @@ myPalette {
   color: #e25238;
   color: #ac8559;
   color: #1c2122;
-  font-family: 'Nunito';
-  font-family: "Montserrat"
 }
 
 /* General Styling */
 
-html, body {
+body {
   height: 100%;
   background-color: #f1efec;
   font-family: "Noto Sans";
   font-size: 16px;
   color: #1c2122;
-  margin: 12px;
+  margin: 24px;
   box-sizing: border-box;
 }
 
@@ -38,14 +36,16 @@ h2 {
 
 #site-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 8px;
+  padding-top: 0px;
   border-bottom: 2px solid #1c2122;
   margin-bottom: 32px;
 }
 
 #site-header > button {
   border: 0px;
+  margin-right: 12px;
 }
 
 #site-header > button > .la-bars {
@@ -57,31 +57,79 @@ h2 {
 
 .navbar-container {
   position: absolute;
-  right:24px;
-  top: 24px;
+  top: 0px;
+  left: 0px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 150px;
-  padding: 8px;
-  background-color: #e25238;
+  width: 100%;
+  height: 100%;
 }
 
-.navbar-container > button {
+#navbar {
+  background-color: #8e8e95;
+  width: 300px;
+  height: 100%;
+  padding: 24px 32px;
+  animation-name: slidein;
+  animation-duration: 100ms;
+  animation-timing-function: ease-in-out;
+}
+
+#navbar > button {
   border: 0px;
-  background-color: #e25238;
+  margin-bottom: 12px;
+  background-color: inherit;
 }
 
-.navbar-container > button > .la-bars {
+#navbar > button > .la-bars {
   font-size: 32px;
   color: #1c2122;
 }
 
-.navbar-container > ul > li > a {
+#navbar > ul {
+  padding: 8px 0px;
+  border-bottom:2px solid #1c2122
+}
+
+#navbar > ul > li {
+  width: 100%;
+}
+
+#navbar > ul > li > a {
+  display: inline-block;
   color: white;
   font-family: "Montserrat";
-  font-weight: bold;
+  font-size: 1.2rem;
   text-decoration: none;
+  width: 100%;
+}
+
+#background-filter {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.13);
+  animation-name: fadein;
+  animation-duration: 150ms;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateX(-300px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadein {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    background-color: rgba(0, 0, 0, 0.13);
+  }
 }
 
 /* Home */
@@ -107,4 +155,11 @@ h2 {
 
 .postlist-container > div > h3 {
   margin-bottom: 4px;
+}
+
+
+/* Hide element */
+
+.hide {
+  display: none;
 }

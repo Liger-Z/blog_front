@@ -9,8 +9,6 @@ const PostList = () => {
       return post.body.slice(0, 150) + '...';
     };
 
-    console.log(postList)
-
     return (
       <div key={post._id}>
         <h3>{post.title}</h3>
