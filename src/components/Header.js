@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
     <header id="site-header">
       <Navbar />
       <button><i className="las la-bars" onClick={handleClick}></i></button>
-      <h1>The Blog</h1>
+      <h1><Link to="/">The Blog</Link></h1>
     </header>
   )
 }
