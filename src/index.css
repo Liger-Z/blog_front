@@ -53,6 +53,11 @@ h2 {
   color: #1c2122;
 }
 
+#site-header > h1 > a {
+  color: #1c2122;
+  text-decoration: none;
+}
+
 /* Navbar */
 
 .navbar-container {
@@ -86,12 +91,13 @@ h2 {
 }
 
 #navbar > ul {
-  padding: 8px 0px;
-  border-bottom:2px solid #1c2122
+  border-top:2px solid #1c2122
 }
 
 #navbar > ul > li {
   width: 100%;
+  padding: 8px 0px;
+  border-bottom: 2px solid #1c2122;
 }
 
 #navbar > ul > li > a {
