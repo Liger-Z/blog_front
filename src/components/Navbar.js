@@ -13,6 +13,9 @@ const Navbar = () => {
           'hide'
         );
         break;
+      case 'DIV':
+        target.parentNode.classList.toggle('hide');
+        break;
       default:
         console.log('Triggered default case somehow!?');
     }
@@ -42,7 +45,7 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <div id="background-filter"></div>
+      <div id="background-filter" onClick={handleClick}></div>
     </div>
   );
 };
