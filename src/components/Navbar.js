@@ -35,6 +35,11 @@ const Navbar = () => {
               Login
             </Link>
           </li>
+          <li>
+            <Link to="/signup" onClick={handleClick}>
+              Sign-Up
+            </Link>
+          </li>
         </ul>
       </nav>
       <div id="background-filter"></div>
