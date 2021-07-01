@@ -3,8 +3,19 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const handleClick = (event) => {
     const target = event.target;
-
-    target.parentNode.parentNode.parentNode.classList.toggle('hide');
+    console.log(target);
+    switch (target.nodeName) {
+      case 'I':
+        target.parentNode.parentNode.parentNode.classList.toggle('hide');
+        break;
+      case 'A':
+        target.parentNode.parentNode.parentNode.parentNode.classList.toggle(
+          'hide'
+        );
+        break;
+      default:
+        console.log('Triggered default case somehow!?');
+    }
   };
 
   return (
@@ -15,7 +26,14 @@ const Navbar = () => {
         </button>
         <ul>
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="/" onClick={handleClick}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/login" onClick={handleClick}>
+              Login
+            </Link>
           </li>
         </ul>
       </nav>
