@@ -31,7 +31,6 @@ const Login = () => {
           value={field.username}
           onChange={handleChange}
         />
-        <br />
         <label>Password</label>
         <br />
         <input
@@ -40,8 +39,7 @@ const Login = () => {
           value={field.password}
           onChange={handleChange}
         />
-        <br/>
-        <button>Submit</button>
+        <button>Log In</button>
       </form>
     </div>
   );
