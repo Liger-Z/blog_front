@@ -12,7 +12,7 @@ const PostList = () => {
 
     return (
       <div key={post._id}>
-        <h3><Link to={`/posts/${post._id}`}>{post.title}</Link></h3>
+        <h2><Link to={`/posts/${post._id}`}>{post.title}</Link></h2>
         <p>{trimmedBody()}</p>
       </div>
     );
@@ -31,7 +31,7 @@ const PostList = () => {
 
   return (
     <div className="postlist-container">
-      <h2>Post List</h2>
+      <h1>Post List</h1>
       {renderPostList}
     </div>
   );

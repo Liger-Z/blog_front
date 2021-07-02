@@ -9,6 +9,10 @@ const Post = () => {
 
   const { postId } = useParams();
 
+  const bodyParser = post.body.split('\n').map((paragraph, index) => {
+    return <p key={index}>{paragraph}</p>
+  })
+
   useEffect(() => {
     const getPost = async () => {
       const response = await fetch(`http://localhost:5000/posts/${postId}`)
@@ -26,7 +30,7 @@ const Post = () => {
   return (
     <div className="post-container">
       <h1>{post.title}</h1>
-      <p>{post.body}</p>
+      {bodyParser}
     </div>
   );
 };
