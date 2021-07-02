@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const PostList = () => {
   const [postList, setPostList] = useState([]);
@@ -11,7 +12,7 @@ const PostList = () => {
 
     return (
       <div key={post._id}>
-        <h3>{post.title}</h3>
+        <h3><Link to={`/posts/${post._id}`}>{post.title}</Link></h3>
         <p>{trimmedBody()}</p>
       </div>
     );
