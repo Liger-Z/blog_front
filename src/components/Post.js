@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CommentList from './CommentList';
 
 const Post = () => {
   const [post, setPost] = useState({
@@ -31,6 +32,7 @@ const Post = () => {
     <div className="post-container">
       <h1>{post.title}</h1>
       {bodyParser}
+      <CommentList postId={postId} />
     </div>
   );
 };

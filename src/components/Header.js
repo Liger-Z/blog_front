@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 const Header = () => {
   const handleClick = event => {
     const target = event.target;
-
+    
     target.parentNode.previousSibling.classList.toggle('hide');
   }
   
