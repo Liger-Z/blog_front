@@ -265,6 +265,36 @@ form > h2 {
   margin-bottom: 16px;
 }
 
+/***** CommentList *****/
+
+.commentlist-container {
+  border-top: 2px solid #1c2122;
+  margin-top: 32px;
+}
+
+
+/***** Comment *****/
+
+.comment-container {
+  padding: 8px 4px;
+  border-bottom: 2px solid #1c2122;
+}
+
+.comment-container:nth-child(2n + 1) {
+  background-color: #dfdcd9;
+}
+
+.comment-container > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.comment-container > div > p {
+  font-size: 0.9rem;
+  color: #4d585a;
+}
+
 /* Hide element */
 
 .hide {

@@ -19,8 +19,11 @@ const CommentList = ({ postId }) => {
   const renderComments = comments.map((comment) => {
     return (
       <div key={comment._id} className="comment-container">
-        <p>{comment.user ? comment.user.username : 'Anonmyous'}</p>
-        <p>{format(new Date(comment.createdAt), 'Pp')}</p>
+        <div>
+          <p>{comment.user ? comment.user.username : 'Anonmyous'}</p>
+          <p>{format(new Date(comment.createdAt), 'Pp')}</p>
+        </div>
+
         <p>{comment.body}</p>
       </div>
     );
