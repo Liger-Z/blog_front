@@ -265,13 +265,35 @@ form > h2 {
   margin-bottom: 16px;
 }
 
+/***** CommentForm *****/
+
+.commentform-container {
+  padding-top: 12px;
+  border-top: 2px solid #1c2122;
+  margin-top: 12px;
+}
+
+.commentform-container > form > h2 {
+  font-size: 1.3rem;
+}
+
+.commentform-container > form > textarea {
+  margin-bottom: 12px;
+  height: 100px;
+  font-family: "Noto Sans";
+  font-size: 0.9rem;
+}
+
+.commentform-container > form > button {
+  width: 100px;
+}
+
 /***** CommentList *****/
 
 .commentlist-container {
   border-top: 2px solid #1c2122;
-  margin-top: 32px;
+  margin-top: 16px;
 }
-
 
 /***** Comment *****/
 

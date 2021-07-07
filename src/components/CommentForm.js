@@ -42,8 +42,6 @@ const CommentForm = ({ postId }) => {
           name="body"
           value={field.body}
           onChange={handleChange}
-          rows="4"
-          cols="20"
         />
         <button>Send</button>
       </form>
