@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 
 const Post = () => {
@@ -32,6 +33,7 @@ const Post = () => {
     <div className="post-container">
       <h1>{post.title}</h1>
       {bodyParser}
+      <CommentForm postId={postId} />
       <CommentList postId={postId} />
     </div>
   );
