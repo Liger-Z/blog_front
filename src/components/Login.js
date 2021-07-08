@@ -1,9 +1,14 @@
 import { useState } from 'react';
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [field, setField] = useState({
     username: '',
     password: '',
+  });
+
+  const [error, setError] = useState({
+    password: '',
+    username: '',
   });
 
   const handleChange = (event) => {
@@ -15,8 +20,27 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const response = await fetch('http://localhost:5000/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(field),
+    });
+
+    const data = await response.json();
+
+    if (response.status === 400) {
+      setError(data);
+    } else {
+      setUser(data.user);
+      localStorage.setItem('jwt', data.token);
+    }
+
   };
 
   return (

@@ -9,21 +9,24 @@ const Post = () => {
     body: '',
   });
 
+  // binary value used to refresh component when a new comment is added
+  const [newComment, setNewComment] = useState(false);
+
   const { postId } = useParams();
 
-  const bodyParser = post.body.split('\n').map((paragraph, index) => {
-    return <p key={index}>{paragraph}</p>
-  })
+  const bodyParser = post.body.split('\n\n').map((paragraph, index) => {
+    return <p key={index}>{paragraph}</p>;
+  });
 
   useEffect(() => {
     const getPost = async () => {
-      const response = await fetch(`http://localhost:5000/posts/${postId}`)
+      const response = await fetch(`http://localhost:5000/posts/${postId}`);
       const data = await response.json();
 
       setPost({
         title: data.title,
-        body: data.body
-      })
+        body: data.body,
+      });
     };
 
     getPost();
@@ -32,9 +35,13 @@ const Post = () => {
   return (
     <div className="post-container">
       <h1>{post.title}</h1>
-      {bodyParser}
-      <CommentForm postId={postId} />
-      <CommentList postId={postId} />
+      <div className="post-body">{bodyParser}</div>
+      <CommentForm
+        postId={postId}
+        newComment={newComment}
+        setNewComment={setNewComment}
+      />
+      <CommentList postId={postId} newComment={newComment} />
     </div>
   );
 };

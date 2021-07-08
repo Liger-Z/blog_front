@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
 
-const CommentList = ({ postId }) => {
+const CommentList = ({ postId, newComment }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const CommentList = ({ postId }) => {
     };
 
     fetchComments();
-  }, [postId]);
+  }, [postId, newComment]);
 
   const renderComments = comments.map((comment) => {
     return (

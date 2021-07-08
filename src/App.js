@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -6,13 +7,20 @@ import SignUp from './components/SignUp';
 import Post from './components/Post';
 
 function App() {
+  const [user, setUser] = useState({
+    username: '',
+    email: '',
+    isAdmin: false,
+    isModerator: false,
+  });
+
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header user={user} />
         <Switch>
           <Route path="/login">
-            <Login />
+            <Login setUser={setUser} />
           </Route>
           <Route path="/signup">
             <SignUp />
