@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
-const Header = ({user}) => {
+const Header = () => {
   const handleClick = event => {
     const target = event.target;
     
@@ -13,7 +13,6 @@ const Header = ({user}) => {
       <Navbar />
       <button><i className="las la-bars" onClick={handleClick}></i></button>
       <h1><Link to="/">The Blog</Link></h1>
-      <p>{user.username}</p>
     </header>
   )
 }

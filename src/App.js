@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -13,6 +13,22 @@ function App() {
     isAdmin: false,
     isModerator: false,
   });
+
+  useEffect(() => {
+    const postAuth = async () => {
+      const response = await fetch('http://localhost:5000/auth', {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        },
+      });
+      console.log(response)
+      const data = await response.json();
+      console.log(data)
+      setUser(data.user);
+    };
+
+    postAuth();
+  }, []);
 
   return (
     <Router>
