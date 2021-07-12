@@ -78,7 +78,8 @@ form > h2 {
 
 #site-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
   padding: 8px;
   padding-top: 0px;
   border-bottom: 2px solid #1c2122;
@@ -98,6 +99,10 @@ form > h2 {
 #site-header > h1 > a {
   color: #1c2122;
   text-decoration: none;
+}
+
+#site-header > p {
+  color:#e25238;
 }
 
 /***** Navbar *****/

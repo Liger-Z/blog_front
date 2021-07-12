@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const handleClick = (event) => {
     const target = event.target;
-
-
 
     switch (target.nodeName) {
       case 'I':
@@ -35,16 +33,20 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          <li>
-            <Link to="/login" onClick={handleClick}>
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link to="/signup" onClick={handleClick}>
-              Sign-Up
-            </Link>
-          </li>
+          {!user.username && (
+            <li>
+              <Link to="/login" onClick={handleClick}>
+                Login
+              </Link>
+            </li>
+          )}
+          {!user.username && (
+            <li>
+              <Link to="/signup" onClick={handleClick}>
+                Sign-Up
+              </Link>
+            </li>
+          )}
           <li>
             <Link to="/logout" onClick={handleClick}>
               Log Out

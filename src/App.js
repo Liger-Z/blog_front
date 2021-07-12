@@ -22,9 +22,7 @@ function App() {
           authorization: `Bearer ${localStorage.getItem('jwt')}`,
         },
       });
-      console.log(response);
       const data = await response.json();
-      console.log(data);
       setUser(data.user);
     };
 
