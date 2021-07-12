@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const handleClick = (event) => {
     const target = event.target;
-    console.log(target);
+
+
+
     switch (target.nodeName) {
       case 'I':
         target.parentNode.parentNode.parentNode.classList.toggle('hide');
@@ -41,6 +43,11 @@ const Navbar = () => {
           <li>
             <Link to="/signup" onClick={handleClick}>
               Sign-Up
+            </Link>
+          </li>
+          <li>
+            <Link to="/logout" onClick={handleClick}>
+              Log Out
             </Link>
           </li>
         </ul>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Login = ({ setUser }) => {
   const [field, setField] = useState({
@@ -10,6 +11,8 @@ const Login = ({ setUser }) => {
     password: '',
     username: '',
   });
+
+  let history = useHistory();
 
   const handleChange = (event) => {
     const target = event.target;
@@ -39,6 +42,7 @@ const Login = ({ setUser }) => {
     } else {
       setUser(data.user);
       localStorage.setItem('jwt', data.token);
+      history.push('/');
     }
 
   };
