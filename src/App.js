@@ -23,8 +23,9 @@ function App() {
         },
       });
       const data = await response.json();
-      
-      if (!data.user === null) {
+      console.log('Fetch to auth made!', data)
+      if (data.user !== null) {
+        console.log('Setting user...')
         setUser(data.user);
       }
     };
@@ -36,7 +37,7 @@ function App() {
   Will need to figure out when to make authentication requests and if a request
   fails the token should be removed.
   */
-  const checkToken = () => {
+  const checkToken = async () => {
     if (localStorage.getItem('jwt') === null) {
       setUser({
         username: '',
@@ -44,7 +45,7 @@ function App() {
         isAdmin: false,
         isModerator: false,
       });
-    } 
+    }
   };
 
   return (
