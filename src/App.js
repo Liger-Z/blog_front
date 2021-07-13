@@ -23,7 +23,10 @@ function App() {
         },
       });
       const data = await response.json();
-      setUser(data.user);
+      
+      if (!data.user === null) {
+        setUser(data.user);
+      }
     };
 
     postAuth();

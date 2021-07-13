@@ -23,7 +23,6 @@ const Login = ({ setUser }) => {
     });
   };
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -34,9 +33,9 @@ const Login = ({ setUser }) => {
       },
       body: JSON.stringify(field),
     });
-
+    console.log(response);
     const data = await response.json();
-
+    console.log(data);
     if (response.status === 400) {
       setError(data);
     } else {
@@ -44,29 +43,32 @@ const Login = ({ setUser }) => {
       localStorage.setItem('jwt', data.token);
       history.push('/');
     }
-
   };
 
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
-        <label>Username</label>
+        <label className={error.username && !field.username ? 'error-label' : ''}>Username</label>
         <br />
         <input
           type="text"
           name="username"
           value={field.username}
           onChange={handleChange}
+          className={error.username && !field.username ? 'error-input' : ''}
         />
-        <label>Password</label>
+        {error.username && <p className="error-msg">{error.username}</p>}
+        <label className={error.password && !field.password ? 'error-label' : ''}>Password</label>
         <br />
         <input
           type="password"
           name="password"
           value={field.password}
           onChange={handleChange}
+          className={error.password && !field.password ? 'error-input' : ''}
         />
+        {error.password && <p className="error-msg">{error.password}</p>}
         <button>Log In</button>
       </form>
     </div>

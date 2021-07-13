@@ -74,11 +74,26 @@ form > h2 {
   font-family: 'Nunito';
 }
 
+/***** Error messages *****/
+
+.error-label {
+  color: rgb(235, 25, 25);
+}
+
+.error-input {
+  border-bottom: 2px solid rgba(235, 25, 25, 0.521);
+}
+
+.error-msg {
+  color: rgb(235, 25, 25);
+  margin-bottom: 12px;
+}
+
 /***** Header *****/
 
 #site-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 8px;
   padding-top: 0px;
