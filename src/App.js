@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import SignUp from './components/SignUp';
 import Post from './components/Post';
+import PostForm from './components/PostForm';
 
 function App() {
   const [user, setUser] = useState({
@@ -23,9 +24,7 @@ function App() {
         },
       });
       const data = await response.json();
-      console.log('Fetch to auth made!', data)
       if (data.user !== null) {
-        console.log('Setting user...')
         setUser(data.user);
       }
     };
@@ -61,6 +60,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUp />
+          </Route>
+          <Route path="/posts/new">
+            <PostForm />
           </Route>
           <Route path="/posts/:postId">
             <Post />

@@ -33,6 +33,11 @@ const Navbar = ({ user }) => {
               Home
             </Link>
           </li>
+          {user.isAdmin && <li>
+            <Link to="/posts/new" onClick={handleClick}>
+              New Post
+            </Link>
+          </li>}
           {!user.username && (
             <li>
               <Link to="/login" onClick={handleClick}>

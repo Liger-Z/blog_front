@@ -20,7 +20,7 @@ const CommentList = ({ postId, newComment }) => {
     return (
       <div key={comment._id} className="comment-container">
         <div>
-          <p>{comment.user ? comment.user.username : 'Anonmyous'}</p>
+          <p>{comment.user ? comment.user.username : 'Anonymous'}</p>
           <p>{format(new Date(comment.createdAt), 'Pp')}</p>
         </div>
 
