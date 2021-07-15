@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
+import PostOptions from './PostOptions';
 
 const Post = () => {
   const [post, setPost] = useState({
@@ -35,6 +36,7 @@ const Post = () => {
   return (
     <div className="post-container">
       <h1>{post.title}</h1>
+      <PostOptions postId={postId} />
       <div className="post-body">{bodyParser}</div>
       <CommentForm
         postId={postId}
