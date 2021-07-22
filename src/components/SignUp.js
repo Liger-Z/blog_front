@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const SignUp = () => {
   const [field, setField] = useState({
@@ -7,6 +8,8 @@ const SignUp = () => {
     password: '',
     passwordConfirmation: ''
   });
+
+  let history = useHistory();
 
   const handleChange = (event) => {
     const target = event.target;
@@ -17,8 +20,18 @@ const SignUp = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    await fetch('http://localhost:5000/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(field)
+    });
+
+    history.push('/login');
   };
 
   return (

@@ -33,9 +33,8 @@ const Login = ({ setUser }) => {
       },
       body: JSON.stringify(field),
     });
-    console.log(response);
+    
     const data = await response.json();
-    console.log(data);
     if (response.status === 400) {
       setError(data);
     } else {
