@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import SignUp from './components/SignUp';
-import Post from './components/Post';
+import PostParent from './components/PostParent';
 import PostForm from './components/PostForm';
 
 function App() {
@@ -61,11 +61,11 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/posts/new">
+          <Route exact path="/posts/new">
             <PostForm />
           </Route>
-          <Route path="/posts/:postId">
-            <Post />
+          <Route exact path="/posts/:postId">
+            <PostParent user={user}/>
           </Route>
           <Route path="/">
             <Home />

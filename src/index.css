@@ -205,7 +205,6 @@ form > h1 {
   }
 }
 
-
 /***** Home *****/
 
 .home-container > div:first-child > p {
@@ -269,13 +268,25 @@ form > h1 {
 
 .postoptions-container > ul {
   display: flex;
+  align-items: center;
 }
 
 .postoptions-container > ul > li {
   margin-right: 12px;
 }
 
-.postoption-container > ul > li > button {
+.postoptions-container > ul > li > button {
+  padding: 0px;
+  border: 0px;
+  background-color: #f1efec;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Montserrat';
+  color: rgb(226, 8, 8);
+}
+
+#edit-post-button {
+  color:rgb(120, 161, 38);
 }
 
 /***** PostForm *****/
@@ -393,13 +404,13 @@ form > h1 {
 }
 
 .confirmationbox-container > form > button {
-  border:1px solid #e25238;
-  font-family: "Montserrat";
+  border: 1px solid #e25238;
+  font-family: 'Montserrat';
   color: #1c2122;
 }
 
 #confirm-button {
-  background-color:#e25238;
+  background-color: #e25238;
   color: white;
 }
 
@@ -408,7 +419,6 @@ form > h1 {
   background-color: rgb(248, 248, 248);
   color: #e25238;
 }
-
 
 /* Hide element */
 

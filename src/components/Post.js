@@ -1,19 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 import PostOptions from './PostOptions';
 
-const Post = () => {
-  const [post, setPost] = useState({
-    title: '',
-    body: '',
-  });
-
+const Post = ({ user, post, setPost, setEdit, postId }) => {
   // binary value used to refresh component when a new comment is added
   const [newComment, setNewComment] = useState(false);
 
-  const { postId } = useParams();
 
   const bodyParser = post.body.split('\n\n').map((paragraph, index) => {
     return <p key={index}>{paragraph}</p>;
@@ -31,12 +24,12 @@ const Post = () => {
     };
 
     getPost();
-  }, [postId]);
+  }, [postId, setPost]);
 
   return (
     <div className="post-container">
       <h1>{post.title}</h1>
-      <PostOptions postId={postId} />
+      {user.isAdmin && <PostOptions postId={postId} setEdit={setEdit} />}
       <div className="post-body">{bodyParser}</div>
       <CommentForm
         postId={postId}

@@ -1,13 +1,10 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
-const PostForm = () => {
+const PostEdit = ({setEdit, post, postId}) => {
   const [field, setField] = useState({
-    title: '',
-    body: '',
+    title: post.title,
+    body: post.body,
   });
-
-  let history = useHistory();
 
   const handleChange = (event) => {
     const target = event.target;
@@ -18,22 +15,22 @@ const PostForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await fetch('http://localhost:5000/posts', {
-      method: 'POST',
+    await fetch(`http://localhost:5000/posts/${postId}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'authorization': `Bearer ${localStorage.getItem('jwt')}`
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
-      body: JSON.stringify(field)
+      body: JSON.stringify(field),
     });
 
-    history.push('/');
+    setEdit(false);
   };
 
   return (
     <div className="postform-container">
       <form onSubmit={handleSubmit}>
-        <h1>New Post</h1>
+        <h1>Edit Post</h1>
         <label>Title</label>
         <input
           type="text"
@@ -49,4 +46,4 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+export default PostEdit;

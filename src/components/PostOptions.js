@@ -1,10 +1,14 @@
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import ConfirmationBox from './ConfirmationBox';
 
-const PostOptions = ({ postId }) => {
+const PostOptions = ({ postId, setEdit }) => {
   let history = useHistory();
 
-  const handleClick = (event) => {
+  const handleEdit = () => {
+    setEdit(true)
+  }
+
+  const handleRemove = (event) => {
     const target = event.target;
     const postremoveconfirm = target.parentNode.parentNode.nextSibling;
     postremoveconfirm.classList.toggle('hide');
@@ -27,10 +31,10 @@ const PostOptions = ({ postId }) => {
     <div className="postoptions-container">
       <ul>
         <li>
-          <Link to={`${window.location.pathname}/edit`}>Edit</Link>
+          <button id="edit-post-button" onClick={handleEdit}>Edit</button>
         </li>
         <li>
-          <button onClick={handleClick}>Remove</button>
+          <button onClick={handleRemove}>Remove</button>
         </li>
       </ul>
 
