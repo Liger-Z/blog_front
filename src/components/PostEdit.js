@@ -1,3 +1,8 @@
+/* TODO:
+  If a user is forbidden from editing a post, a message should be shown
+  to let them know as such.
+*/
+
 import { useState } from 'react';
 
 const PostEdit = ({setEdit, post, postId}) => {

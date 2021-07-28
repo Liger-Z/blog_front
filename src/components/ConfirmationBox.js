@@ -9,19 +9,22 @@ const ConfirmationBox = ({
     event.preventDefault();
     const target = event.target;
 
-    target.parentNode.parentNode.classList.toggle('hide');
+    target.parentNode.parentNode.parentNode.classList.toggle('hide');
   }
 
   return (
     <div className="confirmationbox-container hide">
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <form>
-        <button id="cancel-button" onClick={handleCancel}>{cancelButton}</button>
-        <button id="confirm-button" onClick={handleConfirm}>
-          {confirmButton}
-        </button>
-      </form>
+      <div className="confirmationbox">
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <form>
+          <button id="cancel-button" onClick={handleCancel}>{cancelButton}</button>
+          <button id="confirm-button" onClick={handleConfirm}>
+            {confirmButton}
+          </button>
+        </form>
+      </div>
+      <div className="background-filter"></div>
     </div>
   );
 };

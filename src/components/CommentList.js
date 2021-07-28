@@ -1,7 +1,7 @@
-import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
+import Comment from './Comment';
 
-const CommentList = ({ postId, newComment }) => {
+const CommentList = ({ postId, commentRerender, setCommentRerender }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -14,18 +14,17 @@ const CommentList = ({ postId, newComment }) => {
     };
 
     fetchComments();
-  }, [postId, newComment]);
+  }, [postId, commentRerender]);
 
   const renderComments = comments.map((comment) => {
     return (
-      <div key={comment._id} className="comment-container">
-        <div>
-          <p>{comment.user ? comment.user.username : 'Anonymous'}</p>
-          <p>{format(new Date(comment.createdAt), 'Pp')}</p>
-        </div>
-
-        <p>{comment.body}</p>
-      </div>
+      <Comment
+        key={comment._id}
+        comment={comment}
+        postId={postId}
+        commentRerender={commentRerender}
+        setCommentRerender={setCommentRerender}
+      />
     );
   });
 

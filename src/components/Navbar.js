@@ -59,7 +59,7 @@ const Navbar = ({ user }) => {
           </li>
         </ul>
       </nav>
-      <div id="background-filter" onClick={handleClick}></div>
+      <div className="background-filter" onClick={handleClick}></div>
     </div>
   );
 };

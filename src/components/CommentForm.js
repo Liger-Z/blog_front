@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const CommentForm = ({ postId, newComment, setNewComment }) => {
+const CommentForm = ({ postId, commentRerender, setCommentRerender}) => {
   const [field, setField] = useState({
     body: '',
   });
@@ -26,7 +26,7 @@ const CommentForm = ({ postId, newComment, setNewComment }) => {
     });
 
     setField({ body: '' });
-    setNewComment(!newComment);
+    setCommentRerender(!commentRerender);
    };
 
   return (

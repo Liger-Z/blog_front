@@ -17,12 +17,16 @@ const PostOptions = ({ postId, setEdit }) => {
   const removePost = async (event) => {
     event.preventDefault();
 
-    await fetch(`http://localhost:5000/posts/${postId}`, {
+    const response = await fetch(`http://localhost:5000/posts/${postId}`, {
       method: 'DELETE',
       headers: {
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
       },
     });
+
+    const data = await response.json();
+
+    console.log(response, data);
 
     history.push('/');
   };
