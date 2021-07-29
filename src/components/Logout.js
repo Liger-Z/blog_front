@@ -17,7 +17,7 @@ const Logout = ({ checkToken }) => {
   }, [checkToken, history]);
 
   return (
-    <div>
+    <div className="logout-container">
       <h1>Logout</h1>
       <p>You are now logged out!</p>
       <p>Redirecting to the home page...</p>
