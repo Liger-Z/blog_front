@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Comment from './Comment';
 
-const CommentList = ({ postId, commentRerender, setCommentRerender }) => {
+const CommentList = ({ postId, commentRerender, setCommentRerender, user }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const CommentList = ({ postId, commentRerender, setCommentRerender }) => {
         postId={postId}
         commentRerender={commentRerender}
         setCommentRerender={setCommentRerender}
+        user={user}
       />
     );
   });

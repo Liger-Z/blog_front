@@ -26,7 +26,7 @@ const Post = ({ user, post, setPost, setEdit, postId }) => {
       <h1>{post.title}</h1>
       {user.isAdmin && <PostOptions postId={postId} setEdit={setEdit} />}
       <div className="post-body">{bodyParser}</div>
-      <CommentSection postId={postId} />
+      <CommentSection postId={postId} user={user}/>
     </div>
   );
 };

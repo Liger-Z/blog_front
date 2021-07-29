@@ -33,11 +33,18 @@ const Navbar = ({ user }) => {
               Home
             </Link>
           </li>
-          {user.isAdmin && <li>
-            <Link to="/posts/new" onClick={handleClick}>
-              New Post
-            </Link>
-          </li>}
+          {user.username && (
+            <li>
+              <Link to="/">{user.username}</Link>
+            </li>
+          )}
+          {user.isAdmin && (
+            <li>
+              <Link to="/posts/new" onClick={handleClick}>
+                New Post
+              </Link>
+            </li>
+          )}
           {!user.username && (
             <li>
               <Link to="/login" onClick={handleClick}>
@@ -52,11 +59,13 @@ const Navbar = ({ user }) => {
               </Link>
             </li>
           )}
-          <li>
-            <Link to="/logout" onClick={handleClick}>
-              Log Out
-            </Link>
-          </li>
+          {user.username && (
+            <li>
+              <Link to="/logout" onClick={handleClick}>
+                Log Out
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
       <div className="background-filter" onClick={handleClick}></div>

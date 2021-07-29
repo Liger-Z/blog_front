@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 
-const CommentSection = ({ postId }) => {
+const CommentSection = ({ postId, user }) => {
   const [commentRerender, setCommentRerender] = useState(false);
 
   return (
@@ -16,6 +16,7 @@ const CommentSection = ({ postId }) => {
         postId={postId}
         commentRerender={commentRerender}
         setCommentRerender={setCommentRerender}
+        user={user}
       />
     </div>
   );

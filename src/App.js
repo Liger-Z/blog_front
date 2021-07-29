@@ -14,6 +14,7 @@ function App() {
     email: '',
     isAdmin: false,
     isModerator: false,
+    id: 0
   });
 
   useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
         email: '',
         isAdmin: false,
         isModerator: false,
+        id: 0
       });
     }
   };

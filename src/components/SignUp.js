@@ -1,3 +1,8 @@
+/*
+TODO: Make it so errors show up (and thus it does not automatically
+  redirect if wrong info is entered)
+*/
+
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 

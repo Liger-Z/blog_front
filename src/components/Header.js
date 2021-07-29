@@ -17,7 +17,6 @@ const Header = ({ user }) => {
       <h1>
         <Link to="/">The Blog</Link>
       </h1>
-      <p>{user ? user.username : ''}</p>
     </header>
   );
 };
