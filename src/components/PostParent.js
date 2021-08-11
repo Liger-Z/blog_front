@@ -14,7 +14,7 @@ const PostParent = ({ user }) => {
   const { postId } = useParams();
 
   return (
-    <div>
+    <div className="postparent-container">
       {!edit && (
         <Post
           user={user}

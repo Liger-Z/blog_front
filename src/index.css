@@ -293,7 +293,7 @@ form > h1 {
 }
 
 #edit-post-button {
-  color:rgb(120, 161, 38);
+  color: rgb(120, 161, 38);
 }
 
 /***** PostForm *****/
@@ -383,32 +383,90 @@ form > h1 {
   margin-bottom: 12px;
 }
 
-.comment-container > div > p {
+.comment-container > div:first-child > p {
   font-size: 0.9rem;
   color: #4d585a;
 }
 
-.comment-container > button {
+.comment-body {
+  flex-direction: column;
+}
+
+.comment-body > p {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+/***** CommentOptions *****/
+
+.comment-container > .commentoptions-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  margin-bottom: 0px;
+}
+
+.commentoptions-container > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.commentoptions-container > div:first-child > button {
   padding: 0px;
   border: 0px;
-  margin-top: 8px;
   background-color: #f1efec;
 }
 
-.comment-container:nth-child(2n + 1) > button {
+.comment-container:nth-child(2n + 1) > .commentoptions-container > div:first-child > button {
   background-color: #dfdcd9;
-}
-
-.comment-container .hide {
-  display: none;
-}
-
-.comment-container .confirmationbox-container {
-  margin-bottom: 0px;
 }
 
 .la-trash-alt {
   font-size: 24px;
+}
+
+.la-edit {
+  font-size: 24px;
+}
+
+/***** CommentEdit *****/
+
+.commentedit-container > form {
+  width: 100%;
+}
+
+.commentedit-container > form > h2 {
+  font-size: 1.2rem;
+}
+
+.commentedit-container > form > textarea {
+  padding: 4px;
+  margin-bottom: 16px;
+  height: 100px;
+  font-family: "Noto Sans";
+}
+
+.commentedit-container > form > div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.commentedit-container > form > div > button {
+  border: 1px solid #e25238;
+  font-family: 'Montserrat';
+  font-size: 0.9rem;
+  color: #1c2122;
+}
+
+.commentedit-container > form > div > .confirm-button {
+  background-color: #e25238;
+  color: white;
+}
+
+.commentedit-container > form > div > .cancel-button {
+  margin-right: 12px;
+  background-color: rgb(248, 248, 248);
+  color: #e25238;
 }
 
 /***** Logout *****/
@@ -417,7 +475,7 @@ form > h1 {
   padding: 12px;
   border: 2px solid #1c2122;
   border-radius: 4px;
-  background-color:rgb(248, 248, 248);
+  background-color: rgb(248, 248, 248);
 }
 
 .logout-container > h1 {
@@ -427,7 +485,7 @@ form > h1 {
 
 .logout-container > p:first-of-type {
   margin-bottom: 8px;
-  color:rgba(235, 25, 25);
+  color: rgba(235, 25, 25);
 }
 /***** ConfirmationBox *****/
 
@@ -462,12 +520,12 @@ form > h1 {
   color: #1c2122;
 }
 
-#confirm-button {
+.confirmationbox > form > .confirm-button {
   background-color: #e25238;
   color: white;
 }
 
-#cancel-button {
+.confirmationbox > form > .cancel-button {
   margin-right: 12px;
   background-color: rgb(248, 248, 248);
   color: #e25238;

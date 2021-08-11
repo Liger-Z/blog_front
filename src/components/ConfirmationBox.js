@@ -4,22 +4,16 @@ const ConfirmationBox = ({
   confirmButton,
   cancelButton,
   handleConfirm,
+  handleCancel,
 }) => {
-  const handleCancel = (event) => {
-    event.preventDefault();
-    const target = event.target;
-
-    target.parentNode.parentNode.parentNode.classList.toggle('hide');
-  }
-
   return (
-    <div className="confirmationbox-container hide">
+    <div className="confirmationbox-container">
       <div className="confirmationbox">
         <h2>{title}</h2>
         <p>{description}</p>
         <form>
-          <button id="cancel-button" onClick={handleCancel}>{cancelButton}</button>
-          <button id="confirm-button" onClick={handleConfirm}>
+          <button className="cancel-button" onClick={handleCancel}>{cancelButton}</button>
+          <button className="confirm-button" onClick={handleConfirm}>
             {confirmButton}
           </button>
         </form>

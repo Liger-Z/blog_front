@@ -1,7 +1,8 @@
 // TODO: Allow user to edit their own comment (but don't allow admins or moderators)
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
-import ConfirmationBox from './ConfirmationBox';
+import CommentOptions from './CommentOptions';
+import CommentEdit from './CommentEdit';
 
 const Comment = ({
   comment,
@@ -11,38 +12,16 @@ const Comment = ({
   user,
 }) => {
   const [permitted, setPermitted] = useState(false);
+  const [edit, setEdit] = useState(false);
 
-  const handleClick = (event) => {
-    const target = event.target;
-    target.parentNode.parentNode.lastChild.classList.toggle('hide');
-  };
-
-  const handleConfirm = async (event) => {
-    event.preventDefault();
-
-    await fetch(
-      `http://localhost:5000/posts/${postId}/comments/${comment._id}`,
-      {
-        method: 'DELETE',
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        },
-      }
-    );
-
-    setCommentRerender(!commentRerender);
-    const target = event.target;
-    target.parentNode.parentNode.parentNode.classList.toggle('hide');
-  };
+  const bodyParser = comment.body.split('\n\n').map((paragraph, index) => {
+    return <p key={index}>{paragraph}</p>;
+  });
 
   useEffect(() => {
     const userPermission = () => {
       try {
-        if (
-          user.isAdmin ||
-          user.isModerator ||
-          user.id === comment.user._id
-        ) {
+        if (user.isAdmin || user.isModerator || user.id === comment.user._id) {
           setPermitted(true);
         }
       } catch {
@@ -55,25 +34,32 @@ const Comment = ({
 
   return (
     <div className="comment-container">
-      <div>
-        <p>{comment.user ? comment.user.username : 'Anonymous'}</p>
-        <p>{format(new Date(comment.createdAt), 'Pp')}</p>
-      </div>
+      {!edit && (
+        <div>
+          <p>{comment.user ? comment.user.username : 'Anonymous'}</p>
+          <p>{format(new Date(comment.createdAt), 'Pp')}</p>
+        </div>
+      )}
 
-      <p>{comment.body}</p>
+      {!edit && <div className="comment-body">{bodyParser}</div>}
 
-      {permitted && (
-        <button onClick={handleClick}>
-          <i className="las la-trash-alt"></i>
-        </button>
+      {edit && (
+        <CommentEdit
+          commentRerender={commentRerender}
+          setCommentRerender={setCommentRerender}
+          previousBody={comment.body}
+          postId={postId}
+          commentId={comment._id}
+          setEdit={setEdit}
+        />
       )}
       {permitted && (
-        <ConfirmationBox
-          title="Remove Comment?"
-          description="This comment will be removed forever!"
-          confirmButton="Remove"
-          cancelButton="Keep"
-          handleConfirm={handleConfirm}
+        <CommentOptions
+          commentRerender={commentRerender}
+          setCommentRerender={setCommentRerender}
+          setEdit={setEdit}
+          postId={postId}
+          commentId={comment._id}
         />
       )}
     </div>
