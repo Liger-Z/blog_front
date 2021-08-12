@@ -7,10 +7,13 @@ myPalette {
 }
 
 /***** General Styling *****/
+html {
+  height: 100%;
+}
 
 body {
   height: 100%;
-  background-color: #f1efec;
+  background: #f1efec;
   font-family: 'Noto Sans';
   font-size: 16px;
   color: #1c2122;
@@ -105,6 +108,26 @@ form > h1 {
 .error-msg {
   color: rgb(235, 25, 25);
   margin-bottom: 12px;
+}
+
+/***** Loading spinner *****/ 
+
+.la-circle-notch {
+  font-size: 48px;
+  animation-duration: 2s;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateZ(0);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 
 /***** Header *****/
@@ -219,18 +242,20 @@ form > h1 {
 
 /***** PostList *****/
 
+.postlist-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .postlist-container > h1 {
-  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #1c2122;
   font-size: 1.5rem;
 }
 
 .postlist-container > div {
   padding: 12px 0px;
   border-bottom: 2px solid #1c2122;
-}
-
-.postlist-container > div:nth-child(2) {
-  border-top: 2px solid #1c2122;
 }
 
 .postlist-container > div > h2 {
@@ -250,6 +275,11 @@ form > h1 {
 
 .postlist-container > div > p {
   color: #414d50;
+}
+
+.postlist-container > p {
+  margin-top: 80px;
+  align-self: center;
 }
 
 /***** Post *****/
@@ -397,6 +427,10 @@ form > h1 {
   font-size: 0.9rem;
 }
 
+.comment-body > p:last-child {
+  margin-bottom: 0px;
+}
+
 /***** CommentOptions *****/
 
 .comment-container > .commentoptions-container {
@@ -417,7 +451,10 @@ form > h1 {
   background-color: #f1efec;
 }
 
-.comment-container:nth-child(2n + 1) > .commentoptions-container > div:first-child > button {
+.comment-container:nth-child(2n + 1)
+  > .commentoptions-container
+  > div:first-child
+  > button {
   background-color: #dfdcd9;
 }
 
@@ -443,7 +480,7 @@ form > h1 {
   padding: 4px;
   margin-bottom: 16px;
   height: 100px;
-  font-family: "Noto Sans";
+  font-family: 'Noto Sans';
 }
 
 .commentedit-container > form > div {

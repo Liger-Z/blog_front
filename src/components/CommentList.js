@@ -27,7 +27,7 @@ const CommentList = ({ postId, commentRerender, setCommentRerender, user }) => {
         user={user}
       />
     );
-  });
+  }).reverse(); // Latest comments should appear first
 
   return <div className="commentlist-container">{renderComments}</div>;
 };
