@@ -14,7 +14,7 @@ function App() {
     email: '',
     isAdmin: false,
     isModerator: false,
-    id: 0
+    id: 0,
   });
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function App() {
         email: '',
         isAdmin: false,
         isModerator: false,
-        id: 0
+        id: 0,
       });
     }
   };
@@ -53,26 +53,28 @@ function App() {
     <Router>
       <div className="App">
         <Header user={user} />
-        <Switch>
-          <Route path="/login">
-            <Login setUser={setUser} />
-          </Route>
-          <Route path="/logout">
-            <Logout checkToken={checkToken} />
-          </Route>
-          <Route path="/signup">
-            <SignUp />
-          </Route>
-          <Route exact path="/posts/new">
-            <PostForm />
-          </Route>
-          <Route exact path="/posts/:postId">
-            <PostParent user={user}/>
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <div className="content">
+          <Switch>
+            <Route path="/login">
+              <Login setUser={setUser} />
+            </Route>
+            <Route path="/logout">
+              <Logout checkToken={checkToken} />
+            </Route>
+            <Route path="/signup">
+              <SignUp />
+            </Route>
+            <Route exact path="/posts/new">
+              <PostForm />
+            </Route>
+            <Route exact path="/posts/:postId">
+              <PostParent user={user} />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );

@@ -1,28 +1,12 @@
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ user }) => {
-  const handleClick = (event) => {
-    const target = event.target;
-
-    switch (target.nodeName) {
-      case 'I':
-        target.parentNode.parentNode.parentNode.classList.toggle('hide');
-        break;
-      case 'A':
-        target.parentNode.parentNode.parentNode.parentNode.classList.toggle(
-          'hide'
-        );
-        break;
-      case 'DIV':
-        target.parentNode.classList.toggle('hide');
-        break;
-      default:
-        console.log('Triggered default case somehow!?');
-    }
+const Navbar = ({ user, setShowNav }) => {
+  const handleClick = () => {
+    setShowNav(false);
   };
 
   return (
-    <div className="navbar-container hide">
+    <div className="navbar-container">
       <nav id="navbar">
         <button>
           <i className="las la-bars" onClick={handleClick}></i>

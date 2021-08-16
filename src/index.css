@@ -17,7 +17,6 @@ body {
   font-family: 'Noto Sans';
   font-size: 16px;
   color: #1c2122;
-  margin: 24px;
   box-sizing: border-box;
 }
 
@@ -130,54 +129,74 @@ form > h1 {
   }
 }
 
+/***** Content *****/
+
+.content {
+  margin: 16px;
+}
+
 /***** Header *****/
+.header-container {
+  height: 51px;
+  z-index: -2;
+}
 
-#site-header {
+.header-main {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   padding: 8px;
-  padding-top: 0px;
-  border-bottom: 2px solid #1c2122;
-  margin-bottom: 32px;
+  border-bottom: 1px solid rgba(28, 33, 34, 0.315);
+  width: 100%;
+  background-color:rgb(253, 251, 249);
 }
 
-#site-header > button {
+.header-main > button {
   border: 0px;
-  margin-right: 12px;
+  background-color:rgb(253, 251, 249);
 }
 
-#site-header > button > .la-bars {
+.header-main > button > .la-bars {
   font-size: 32px;
   color: #1c2122;
 }
 
-#site-header > h1 > a {
+.header-main > h1 > a {
   color: #1c2122;
+  font-weight: 500;
   text-decoration: none;
 }
 
-#site-header > p {
+.header-main > h1 > a > span {
   color: #e25238;
 }
 
 /***** Navbar *****/
 
 .navbar-container {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   display: flex;
+  flex-direction: row-reverse;
   width: 100%;
   height: 100%;
+  z-index: 3;
 }
 
 #navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   background-color: #8e8e95;
   min-width: 200px;
   max-width: 250px;
   height: 100%;
-  padding: 24px 32px;
+  padding: 16px;
+  padding-top: 8px;
   animation-name: slidein;
   animation-duration: 100ms;
   animation-timing-function: ease-in-out;
@@ -186,6 +205,7 @@ form > h1 {
 
 #navbar > button {
   border: 0px;
+  padding: 0px;
   margin-bottom: 12px;
   background-color: inherit;
 }
@@ -196,7 +216,11 @@ form > h1 {
 }
 
 #navbar > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   border-top: 2px solid #1c2122;
+  width: 100%;
 }
 
 #navbar > ul > li {
@@ -216,7 +240,7 @@ form > h1 {
 
 @keyframes slidein {
   0% {
-    transform: translateX(-300px);
+    transform: translateX(300px);
   }
 
   100% {
@@ -254,32 +278,45 @@ form > h1 {
 }
 
 .postlist-container > div {
-  padding: 12px 0px;
-  border-bottom: 2px solid #1c2122;
+  padding: 8px;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 2px;
+  margin-bottom: 12px;
+  background-color:rgb(253, 251, 249);
 }
 
 .postlist-container > div > h2 {
-  margin-bottom: 4px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e25238;
+  margin-bottom: 12px;
   font-size: 1.1rem;
   font-weight: bold;
 }
 
 .postlist-container > div > h2 > a {
   text-decoration: none;
-  color: rgb(36, 36, 187);
+  color: #1c2122;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
 
 .postlist-container > div > h2 > a:visited {
-  color: rgb(137, 39, 230);
+  color: #1c2122;
 }
 
 .postlist-container > div > p {
-  color: #414d50;
+  color: #5e6e72;
 }
 
-.postlist-container > p {
-  margin-top: 80px;
-  align-self: center;
+.postlist-container > div > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.postlist-container > div > div > p {
+  color: #e25238;
+  font-size: 0.9rem;
 }
 
 /***** Post *****/
@@ -290,10 +327,11 @@ form > h1 {
   border-bottom: 2px solid #1c2122;
   margin-bottom: 16px;
   background-color: #dfdcd9;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .post-body > p {
+  color: #212525;
   margin-bottom: 12px;
 }
 
@@ -566,10 +604,4 @@ form > h1 {
   margin-right: 12px;
   background-color: rgb(248, 248, 248);
   color: #e25238;
-}
-
-/* Hide element */
-
-.hide {
-  display: none;
 }
