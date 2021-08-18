@@ -6,7 +6,7 @@ const CommentSection = ({ postId, user }) => {
   const [commentRerender, setCommentRerender] = useState(false);
 
   return (
-    <div>
+    <div className="commentsection-container">
       <CommentForm
         postId={postId}
         commentRerender={commentRerender}

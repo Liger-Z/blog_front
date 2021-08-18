@@ -7,6 +7,7 @@ import Logout from './components/Logout';
 import SignUp from './components/SignUp';
 import PostParent from './components/PostParent';
 import PostForm from './components/PostForm';
+import Profile from './components/Profile';
 
 function App() {
   const [user, setUser] = useState({
@@ -15,6 +16,7 @@ function App() {
     isAdmin: false,
     isModerator: false,
     id: 0,
+    createdAt: new Date(),
   });
 
   useEffect(() => {
@@ -26,6 +28,7 @@ function App() {
       });
       const data = await response.json();
       if (data.user !== null) {
+        console.log(data);
         setUser(data.user);
       }
     };
@@ -69,6 +72,9 @@ function App() {
             </Route>
             <Route exact path="/posts/:postId">
               <PostParent user={user} />
+            </Route>
+            <Route exact path="/profile">
+              <Profile user={user} />
             </Route>
             <Route path="/">
               <Home />

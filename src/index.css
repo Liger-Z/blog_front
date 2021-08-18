@@ -109,7 +109,7 @@ form > h1 {
   margin-bottom: 12px;
 }
 
-/***** Loading spinner *****/ 
+/***** Loading spinner *****/
 
 .la-circle-notch {
   font-size: 48px;
@@ -151,12 +151,12 @@ form > h1 {
   padding: 8px;
   border-bottom: 1px solid rgba(28, 33, 34, 0.315);
   width: 100%;
-  background-color:rgb(253, 251, 249);
+  background-color: rgb(253, 251, 249);
 }
 
 .header-main > button {
   border: 0px;
-  background-color:rgb(253, 251, 249);
+  background-color: rgb(253, 251, 249);
 }
 
 .header-main > button > .la-bars {
@@ -191,6 +191,7 @@ form > h1 {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  border-left: 2px solid #69696e;
   background-color: #8e8e95;
   min-width: 200px;
   max-width: 250px;
@@ -282,7 +283,7 @@ form > h1 {
   border-radius: 2px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 2px;
   margin-bottom: 12px;
-  background-color:rgb(253, 251, 249);
+  background-color: rgb(253, 251, 249);
 }
 
 .postlist-container > div > h2 {
@@ -315,24 +316,40 @@ form > h1 {
 }
 
 .postlist-container > div > div > p {
+  color: #343a3a;
+  font-size: 0.9rem;
+}
+
+.postlist-container > div > div > p:first-child {
   color: #e25238;
   font-size: 0.9rem;
 }
 
 /***** Post *****/
 
+.post-container {
+  padding: 8px;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 2px;
+  margin-bottom: 12px;
+  background-color: rgb(253, 251, 249);
+}
+
 .post-container > h1 {
-  padding: 8px 0px;
-  border-top: 2px solid #1c2122;
-  border-bottom: 2px solid #1c2122;
-  margin-bottom: 16px;
-  background-color: #dfdcd9;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e25238;
+  margin-bottom: 12px;
   font-size: 1.5rem;
 }
 
+.post-body {
+  border-bottom: 2px solid #e25238;
+}
+
 .post-body > p {
-  color: #212525;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  color: #343a3a;
+  line-height: 1.2rem;
 }
 
 /***** PostOptions *****/
@@ -353,7 +370,7 @@ form > h1 {
 .postoptions-container > ul > li > button {
   padding: 0px;
   border: 0px;
-  background-color: #f1efec;
+  background-color: rgb(253, 251, 249);
   font-size: 1rem;
   font-weight: bold;
   font-family: 'Montserrat';
@@ -407,9 +424,8 @@ form > h1 {
 /***** CommentForm *****/
 
 .commentform-container {
-  padding-top: 12px;
-  border-top: 2px solid #1c2122;
-  margin-top: 12px;
+  margin-top: 48px;
+  margin-bottom: 48px;
 }
 
 .commentform-container > form > h2 {
@@ -417,7 +433,7 @@ form > h1 {
 }
 
 .commentform-container > form > textarea {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   height: 100px;
   font-family: 'Noto Sans';
   font-size: 0.9rem;
@@ -427,22 +443,14 @@ form > h1 {
   width: 100px;
 }
 
-/***** CommentList *****/
-
-.commentlist-container {
-  border-top: 2px solid #1c2122;
-  margin-top: 16px;
-}
-
 /***** Comment *****/
 
 .comment-container {
   padding: 8px 4px;
-  border-bottom: 2px solid #1c2122;
 }
 
 .comment-container:nth-child(2n + 1) {
-  background-color: #dfdcd9;
+  background-color: rgb(240, 240, 240);
 }
 
 .comment-container > div {
@@ -452,8 +460,12 @@ form > h1 {
 }
 
 .comment-container > div:first-child > p {
-  font-size: 0.9rem;
-  color: #4d585a;
+  font-size: 15px;
+  color: #343a3a;
+}
+
+.comment-container > div:first-child > p:first-child {
+  color: #e25238;
 }
 
 .comment-body {
@@ -462,7 +474,9 @@ form > h1 {
 
 .comment-body > p {
   margin-bottom: 12px;
-  font-size: 0.9rem;
+  color: #343a3a;
+  font-size: 15px;
+  line-height: 1.1rem;
 }
 
 .comment-body > p:last-child {
@@ -486,14 +500,14 @@ form > h1 {
 .commentoptions-container > div:first-child > button {
   padding: 0px;
   border: 0px;
-  background-color: #f1efec;
+  background-color: rgb(253, 251, 249);
 }
 
 .comment-container:nth-child(2n + 1)
   > .commentoptions-container
   > div:first-child
   > button {
-  background-color: #dfdcd9;
+  background-color: rgb(240, 240, 240);
 }
 
 .la-trash-alt {
@@ -562,6 +576,28 @@ form > h1 {
   margin-bottom: 8px;
   color: rgba(235, 25, 25);
 }
+
+/***** Profile ******/
+
+.profile-container {
+  padding: 8px;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 2px;
+  margin-bottom: 12px;
+  background-color: rgb(253, 251, 249);
+}
+
+.profile-container > h1 {
+  font-size: 1.5rem;
+  padding-bottom: 12px;
+  border-bottom: 2px solid#e25238;
+  margin-bottom: 24px;
+}
+
+.profile-container > ul > li {
+  margin-bottom: 12px;
+}
+
 /***** ConfirmationBox *****/
 
 .confirmationbox {
