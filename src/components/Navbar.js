@@ -19,7 +19,7 @@ const Navbar = ({ user, setShowNav }) => {
           </li>
           {user.username && (
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link to="/profile" onClick={handleClick}>Profile</Link>
             </li>
           )}
           {user.isAdmin && (

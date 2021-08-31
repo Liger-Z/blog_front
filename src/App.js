@@ -8,6 +8,7 @@ import SignUp from './components/SignUp';
 import PostParent from './components/PostParent';
 import PostForm from './components/PostForm';
 import Profile from './components/Profile';
+import PasswordChange from './components/PasswordChange';
 
 function App() {
   const [user, setUser] = useState({
@@ -48,6 +49,7 @@ function App() {
         isAdmin: false,
         isModerator: false,
         id: 0,
+        createdAt: new Date()
       });
     }
   };
@@ -76,6 +78,10 @@ function App() {
             <Route exact path="/profile">
               <Profile user={user} />
             </Route>
+            <Route exact path="/profile/changepassword">
+              <PasswordChange user={user} />
+            </Route>
+            
             <Route path="/">
               <Home />
             </Route>
